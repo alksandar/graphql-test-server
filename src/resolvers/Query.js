@@ -1,0 +1,43 @@
+const { getUserId } = require('../utils')
+
+const Query = {
+  feed(parent, args, ctx, info) {
+    return ctx.db.query.posts({ where: { isPublished: true } }, info)
+  },
+
+  drafts(parent, args, ctx, info) {
+    const id = getUserId(ctx)
+
+    const where = {
+      isPublished: false,
+      author: {
+        id
+      }
+    }
+
+    return ctx.db.query.posts({ where }, info)
+  },
+
+  post(parent, { id }, ctx, info) {
+    return ctx.db.query.post({ where: { id } }, info)
+  },
+
+  me(parent, args, ctx, info) {
+    const id = getUserId(ctx)
+    return ctx.db.query.user({ where: { id } }, info)
+  },
+
+  testMutations(parent, args, ctx, info) {
+    return ctx.db.query.testMutations({}, info);
+  },
+
+  testMutation(parent, args, ctx, info) {
+    return ctx.db.query.testMutation({ where: { id: args.id } }, info);
+  },
+
+  garages(parent, args, ctx, info) {
+    return ctx.db.query.garages({}, info);
+  }
+}
+
+module.exports = { Query }
