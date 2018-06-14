@@ -1,1 +1,1 @@
-web: yarn start
+web: node -r dotenv/config src/index.js
