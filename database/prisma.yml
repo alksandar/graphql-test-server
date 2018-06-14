@@ -1,6 +1,3 @@
-# The endpoint of your Prisma API (deployed to a Prisma Sandbox).
-endpoint: https://eu1.prisma.sh/public-greenhare-981/graphql-app/dev
-
 # The file containing the definition of your data model.
 datamodel: datamodel.graphql
 
@@ -18,3 +15,5 @@ hooks:
 # to the `Authorization` header of HTTP requests made against the Prisma API.
 # Info: https://www.prisma.io/docs/reference/prisma-api/concepts-utee3eiquo#authentication
 # secret: ${env:PRISMA_SECRET}
+
+endpoint: https://eu1.prisma.sh/sc-7b86dd/prisma-test-db/dev
